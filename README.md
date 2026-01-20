@@ -1,3 +1,5 @@
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/060c3ff9-2717-4bd1-adf5-7ea80bb6e203" />
+
 # Claude Brainstorm Plugin
 
 A Claude Code plugin that enforces brainstorming mode, preventing Claude from jumping to solutions.
