@@ -31,9 +31,9 @@ The script creates:
 - `.brainstorm-state` - state file that enables the enforcer hook
 - `brainstorm-[topic]-[timestamp].md` - session file for logging ideas
 
-## Technique Menu (Present at Start)
+## Technique Selection (Present at Start)
 
-When activated, present this menu:
+When activated, first display this quick guide:
 
 ```
 BRAINSTORMING MODE
@@ -47,18 +47,31 @@ Commands:
 - /brainstorm:back - Return to parent thread
 - /brainstorm:status - See current thread, open forks, top ideas
 - /brainstorm:done - End session with summary
-
-Choose your approach (or mix them):
-
-1. Free Association - Wild ideas, no filter
-2. SCAMPER - Systematic transformation (Substitute, Combine, Adapt, Modify, Put to other uses, Eliminate, Reverse)
-3. Six Thinking Hats - Rotate through styles (Facts, Emotions, Caution, Benefits, Creativity, Process)
-4. Reverse Brainstorm - "How could we make this fail?"
-5. Analogy Hunt - Steal solutions from other domains
-6. Constraint Play - "What if we had no X?" / "What if we had infinite Y?"
-
-What are we brainstorming about?
 ```
+
+Then use the **AskUserQuestion tool** to let the user select techniques. Use `multiSelect: true` so they can pick multiple approaches:
+
+```json
+{
+  "questions": [
+    {
+      "question": "Which brainstorming techniques would you like to use?",
+      "header": "Techniques",
+      "multiSelect": true,
+      "options": [
+        {"label": "Free Association", "description": "Wild ideas, no filter"},
+        {"label": "SCAMPER", "description": "Systematic transformation (Substitute, Combine, Adapt, Modify, Put to other uses, Eliminate, Reverse)"},
+        {"label": "Six Thinking Hats", "description": "Rotate through styles (Facts, Emotions, Caution, Benefits, Creativity, Process)"},
+        {"label": "Reverse Brainstorm", "description": "How could we make this fail? Then flip the answers"}
+      ]
+    }
+  ]
+}
+```
+
+Note: AskUserQuestion supports max 4 options. If user selects "Other", offer the remaining techniques:
+- **Analogy Hunt** - Steal solutions from other domains
+- **Constraint Play** - "What if we had no X?" / "What if we had infinite Y?"
 
 ## Session State Tracking
 
