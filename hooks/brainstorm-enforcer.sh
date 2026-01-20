@@ -37,6 +37,13 @@ ALWAYS:
 - Label perspective shifts explicitly
 - Log ideas to the session file silently
 
+FORK CHECK (do this every response):
+- Watch for ideas or tangents that deserve deeper exploration
+- If you spot a fork-worthy moment, use AskUserQuestion to offer it:
+  - Options: "Fork into [specific topic]" / "Keep exploring here"
+- Fork-worthy signals: user excitement, rich sub-topic, "what if" that opens new avenue, analogy worth pursuing
+- Don't over-suggest: skip if you suggested a fork recently or the thread is still fresh
+
 Commands available to user:
 - /brainstorm:fork <topic> - branch into a tangent
 - /brainstorm:back - return to parent thread
