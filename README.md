@@ -19,6 +19,8 @@ The plugin uses Claude Code's hook system to inject a "brainstorm mode enforcer"
 - Feasibility evaluation is suppressed unless explicitly requested
 - Ideas are logged to a timestamped markdown file automatically
 - Thread navigation lets you explore tangents without losing context
+- Claude proactively searches the web for inspiration and analogies
+- Fork suggestions help you explore promising tangents
 
 ## Installation
 
@@ -110,6 +112,14 @@ Shows:
 
 The only way to exit brainstorm mode. Claude adds a summary to the session file and offers to help prioritize.
 
+### Get help
+
+```
+/brainstorm:help
+```
+
+Shows all commands, available techniques, and how sessions work.
+
 ## Session Files
 
 Sessions are saved to `brainstorm-[topic]-[timestamp].md` in your working directory. Format:
@@ -158,15 +168,17 @@ Stats:
 │   ├── fork.md                  # /brainstorm:fork - create nested thread
 │   ├── back.md                  # /brainstorm:back - return to parent
 │   ├── status.md                # /brainstorm:status - show progress
-│   └── done.md                  # /brainstorm:done - end session
+│   ├── done.md                  # /brainstorm:done - end session
+│   └── help.md                  # /brainstorm:help - show help and techniques
 ├── hooks/
 │   ├── hooks.json               # Hook configuration (PreToolUse + UserPromptSubmit)
 │   └── brainstorm-enforcer.sh   # UserPromptSubmit hook (mode enforcement)
 └── scripts/
-    ├── start-session.sh         # Creates .brainstorm-state and session file
-    ├── end-session.sh           # Removes .brainstorm-state
+    ├── start-session.sh             # Creates .brainstorm-state and session file
+    ├── end-session.sh               # Removes .brainstorm-state
     ├── approve-brainstorm-write.sh  # Auto-approves writes to brainstorm-*.md
-    └── approve-brainstorm-bash.sh   # Auto-approves plugin bash commands
+    ├── approve-brainstorm-bash.sh   # Auto-approves plugin bash commands
+    └── approve-brainstorm-websearch.sh  # Auto-approves web searches during sessions
 ```
 
 ### State Management
@@ -204,6 +216,9 @@ If Claude runs bash (start-session.sh, end-session.sh, tree):
        ↓
 If Claude writes to brainstorm-*.md:
   PreToolUse hook fires → approve-brainstorm-write.sh → auto-approved
+       ↓
+If Claude searches the web:
+  PreToolUse hook fires → approve-brainstorm-websearch.sh → auto-approved
 ```
 
 ### Modifying Behavior
@@ -219,6 +234,8 @@ If Claude writes to brainstorm-*.md:
 **Change file auto-approve behavior**: Edit `scripts/approve-brainstorm-write.sh` to allow/block different file patterns.
 
 **Change bash auto-approve behavior**: Edit `scripts/approve-brainstorm-bash.sh` to allow/block different bash commands.
+
+**Change web search auto-approve behavior**: Edit `scripts/approve-brainstorm-websearch.sh` to modify when web searches are auto-approved.
 
 ## Limitations
 

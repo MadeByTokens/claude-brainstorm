@@ -35,7 +35,8 @@ How It Works:
   3. Ideas are generated in batches and logged to a session file
   4. Fork into tangents anytime, return with /brainstorm:back
   5. Claude will suggest forks when promising tangents emerge
-  6. End with /brainstorm:done to get a summary
+  6. Claude proactively searches the web for inspiration and analogies
+  7. End with /brainstorm:done to get a summary
 
 Session Files:
   - Ideas are saved to: brainstorm-[topic]-[timestamp].md

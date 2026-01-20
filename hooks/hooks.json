@@ -18,6 +18,15 @@
             "command": "${CLAUDE_PLUGIN_ROOT}/scripts/approve-brainstorm-bash.sh"
           }
         ]
+      },
+      {
+        "matcher": "WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/scripts/approve-brainstorm-websearch.sh"
+          }
+        ]
       }
     ],
     "UserPromptSubmit": [
