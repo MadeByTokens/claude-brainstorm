@@ -1,10 +1,17 @@
 #!/bin/bash
 # Brainstorm mode enforcer hook
-# Checks if brainstorm mode is active and injects rules reminder
+# Outputs plugin path always, and injects rules reminder when session is active
+
+# Get the plugin root directory (this script is in hooks/, so parent is plugin root)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PLUGIN_ROOT="$(dirname "$SCRIPT_DIR")"
 
 STATE_FILE="./.brainstorm-state"
 
-# Exit silently if no active session
+# Always output plugin path so Claude knows where scripts are
+echo "<brainstorm-plugin-path>$PLUGIN_ROOT</brainstorm-plugin-path>"
+
+# Exit if no active session (but we already output the path above)
 if [ ! -f "$STATE_FILE" ]; then
     exit 0
 fi

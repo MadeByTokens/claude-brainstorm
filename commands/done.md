@@ -10,8 +10,9 @@ The user is ending their brainstorming session. Wrap up gracefully.
 
 1. **FIRST: Run the end script** to clear brainstorm state:
    ```bash
-   ./scripts/end-session.sh
+   PLUGIN_PATH/scripts/end-session.sh
    ```
+   Replace `PLUGIN_PATH` with the actual path from the `<brainstorm-plugin-path>` tag in your context.
    This removes `.brainstorm-state`, which disables the enforcer hook.
 
 2. **Write final summary to session file**
