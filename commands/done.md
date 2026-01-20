@@ -38,10 +38,27 @@ Stats:
 Session saved to: [path to session file]
 ```
 
-4. **Offer next steps:**
-   - "Want to pick winners and start planning?"
-   - "Should I help prioritize these ideas?"
-   - "Ready to implement something from this session?"
+4. **Offer next steps using AskUserQuestion:**
+
+Use the AskUserQuestion tool to let the user choose what to do next:
+
+```json
+{
+  "questions": [
+    {
+      "question": "What would you like to do with these ideas?",
+      "header": "Next step",
+      "multiSelect": false,
+      "options": [
+        {"label": "Pick winners", "description": "Select the best ideas and start planning"},
+        {"label": "Prioritize", "description": "Help rank and organize the ideas"},
+        {"label": "Implement", "description": "Start building something from this session"},
+        {"label": "Done for now", "description": "Save and exit, come back later"}
+      ]
+    }
+  ]
+}
+```
 
 ## Important
 

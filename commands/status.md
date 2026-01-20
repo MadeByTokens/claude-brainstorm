@@ -37,10 +37,25 @@ Ideas generated: [total count]
 
 ## After Status
 
-Brief prompt to continue:
-- "Ready to keep going?"
-- "Want to explore any of these further?"
-- "Should we fork into something new?"
+Use the AskUserQuestion tool to prompt the user on how to continue:
+
+```json
+{
+  "questions": [
+    {
+      "question": "How would you like to continue?",
+      "header": "Continue",
+      "multiSelect": false,
+      "options": [
+        {"label": "Keep going", "description": "Continue generating ideas on current thread"},
+        {"label": "Explore further", "description": "Dig deeper into one of the top ideas"},
+        {"label": "Fork", "description": "Branch into a new tangent"},
+        {"label": "Wrap up", "description": "End session with /brainstorm:done"}
+      ]
+    }
+  ]
+}
+```
 
 ## Important
 

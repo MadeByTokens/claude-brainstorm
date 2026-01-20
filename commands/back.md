@@ -31,14 +31,30 @@ Where were we? [Continue the parent thread's brainstorm, or ask what to explore 
 
 ## If Already at MAIN
 
-If the user calls /brainstorm:back while already at MAIN (no parent to return to):
+If the user calls /brainstorm:back while already at MAIN (no parent to return to), display:
 
 ```
 Already at MAIN thread - no parent to return to.
 
 Current open forks: [list forks if any]
+```
 
-Want to /brainstorm:fork into something new, or keep exploring here?
+Then use AskUserQuestion to offer options:
+
+```json
+{
+  "questions": [
+    {
+      "question": "What would you like to do?",
+      "header": "Navigate",
+      "multiSelect": false,
+      "options": [
+        {"label": "Fork", "description": "Branch into a new tangent"},
+        {"label": "Keep exploring", "description": "Continue on the main thread"}
+      ]
+    }
+  ]
+}
 ```
 
 ## Important
