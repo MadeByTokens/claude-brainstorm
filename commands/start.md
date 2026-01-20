@@ -47,6 +47,7 @@ Commands:
 - /brainstorm:back - Return to parent thread
 - /brainstorm:status - See current thread, open forks, top ideas
 - /brainstorm:done - End session with summary
+- /brainstorm:help - Show help and technique reference
 ```
 
 Then use the **AskUserQuestion tool** to let the user select techniques. Use `multiSelect: true` so they can pick multiple approaches:
