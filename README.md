@@ -22,23 +22,39 @@ The plugin uses Claude Code's hook system to inject a "brainstorm mode enforcer"
 
 ## Installation
 
-Clone the repository:
+### Option A: Via MadeByTokens Marketplace (Recommended)
+
+See https://github.com/MadeByTokens/claude-code-plugins-madebytokens
+
+### Option B: CLI Flag at Launch
 
 ```bash
-git clone <this-repo> ~/claude-brainstorm
+# Clone the repo
+git clone https://github.com/MadeByTokens/claude-brainstorm.git
+
+# Launch Claude Code with the plugin directory
+claude --plugin-dir /path/to/claude-brainstorm
 ```
 
-Then run Claude Code with the plugin:
+### Option C: Manual Settings Configuration
 
-```bash
-claude --plugin-dir ~/claude-brainstorm
+Clone the repo, then add it to your Claude Code settings file:
+
+**User scope** (`~/.claude/settings.json`):
+```json
+{
+  "pluginDirs": ["/path/to/claude-brainstorm"]
+}
 ```
 
-To always load the plugin, add an alias to your shell config:
-
-```bash
-alias claude-brainstorm='claude --plugin-dir ~/claude-brainstorm'
+**Project scope** (`.claude/settings.json` in your project):
+```json
+{
+  "pluginDirs": ["/path/to/claude-brainstorm"]
+}
 ```
+
+---
 
 The plugin self-approves its own operations (session scripts, tree commands, brainstorm file writes) via hooks, so no manual permission configuration is needed.
 
