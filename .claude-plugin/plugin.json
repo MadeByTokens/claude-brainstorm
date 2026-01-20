@@ -1,0 +1,8 @@
+{
+  "name": "brainstorm",
+  "version": "1.0.0",
+  "description": "Creative brainstorming partner for generating ideas, exploring possibilities, and divergent thinking. Transforms Claude from solution-finder into thought partner.",
+  "author": {
+    "name": "Claude Brainstorm"
+  }
+}
