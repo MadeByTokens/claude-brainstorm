@@ -15,7 +15,7 @@ The plugin consists of three core components:
    - `/brainstorm:fork <topic>` - Create nested thread for tangent exploration
    - `/brainstorm:back` - Return to parent thread
    - `/brainstorm:status` - Show progress (current thread, forks, top ideas)
-   - `/brainstorm:done` - End session with summary
+   - `/brainstorm:done` - End session, generate summary file
    - `/brainstorm:help` - Show commands and techniques
 
 2. **Hooks** (`hooks/`) - Automatic enforcement:
@@ -45,7 +45,7 @@ User prompt → UserPromptSubmit → brainstorm-enforcer.sh checks .brainstorm-s
                                Claude processes in brainstorm mode
                                           ↓
 Tool calls → PreToolUse → approve-*.sh scripts auto-approve:
-  - Writes to brainstorm-*.md
+  - Writes to brainstorm-*.md (includes *-summary.md files)
   - Bash: start-session.sh, end-session.sh, tree commands
   - WebSearch (during active sessions)
 ```

@@ -39,7 +39,8 @@ How It Works:
   7. End with /brainstorm:done to get a summary
 
 Session Files:
-  - Ideas are saved to: brainstorm-[topic]-[timestamp].md
+  - Full session: brainstorm-[topic]-[timestamp].md
+  - Summary: brainstorm-[topic]-[timestamp]-summary.md (compact version for follow-up)
   - Located in current working directory
 ```
 

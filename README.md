@@ -110,7 +110,10 @@ Shows:
 /brainstorm:done
 ```
 
-The only way to exit brainstorm mode. Claude adds a summary to the session file and offers to help prioritize.
+The only way to exit brainstorm mode. Claude:
+1. Asks you to pick your top ideas
+2. Generates a compact summary file (`*-summary.md`) for easy loading into future sessions
+3. Offers to help prioritize or implement
 
 ### Get help
 
@@ -122,7 +125,11 @@ Shows all commands, available techniques, and how sessions work.
 
 ## Session Files
 
-Sessions are saved to `brainstorm-[topic]-[timestamp].md` in your working directory. Format:
+Two files are created per session in your working directory:
+- **Full session**: `brainstorm-[topic]-[timestamp].md` - Complete record of all ideas and forks
+- **Summary**: `brainstorm-[topic]-[timestamp]-summary.md` - Compact version (~20 lines) for loading into new Claude sessions
+
+### Full session format
 
 ```markdown
 # Brainstorm: improving checkout flow
@@ -155,6 +162,28 @@ Stats:
 - Ideas generated: 23
 - Forks explored: 1
 - Techniques used: Free Association, SCAMPER
+```
+
+### Summary format
+
+```markdown
+# Summary: improving checkout flow
+Date: 2026-01-19 15:30 | Ideas: 23 | Forks: 1
+
+## Key Themes
+- Reducing friction for returning users
+- Accessibility and alternative input methods
+- Trust signals at decision points
+
+## Top Ideas
+- One-click purchase for returning customers
+- Progress indicator showing steps remaining
+- Voice confirmation for accessibility
+
+## Forks Explored
+- voice-controlled navigation: Explored voice UI for checkout actions
+
+Full session: brainstorm-checkout-flow-20260119-1530.md
 ```
 
 ## Architecture (for developers)
